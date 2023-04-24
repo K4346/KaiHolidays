@@ -2,6 +2,7 @@ package com.example.kholidays.ui
 
 import android.app.Application
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.centerofcat.data.repositories.HolidaysRepositoryImpl
@@ -70,6 +71,7 @@ class CalendarViewModel(private val application: Application) : AndroidViewModel
                     holidaysSLE.value = getHolidaysFromDay(it)
                 }
             }, {
+                Toast.makeText(application.applicationContext,"Интернет соединение отсутствует",Toast.LENGTH_LONG).show()
             }
             )
         compositeDisposable.add(disposable)
